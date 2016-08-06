@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TarsosDSP:jar">
+    <output-path>$PROJECT_DIR$/bin/artifacts/TarsosDSP_jar</output-path>
+    <root id="archive" name="TarsosDSP.jar">
+      <element id="module-output" name="TarsosDSP" />
+    </root>
+  </artifact>
+</component>
