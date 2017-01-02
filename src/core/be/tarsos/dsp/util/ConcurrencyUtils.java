@@ -251,7 +251,7 @@ public class ConcurrencyUtils {
             throw new IllegalArgumentException("x must be greater or equal 1");
         return isPowerOf2_unchecked(x) ?
           x : // x is already a power-of-two number
-          Integer.lowestOneBit(x) << 1;
+          Integer.highestOneBit(x) << 1;
     }
 
     /**
