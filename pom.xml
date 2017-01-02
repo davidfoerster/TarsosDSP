@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>co.kaleidok</groupId>
+  <artifactId>tarsosdsp</artifactId>
+  <version>3.3-SNAPSHOT</version>
+
+  <name>TarsosDSP</name>
+  <url>https://0110.be/tag/TarsosDSP</url>
+  <description>
+    TarsosDSP is a Java library for audio processing. Its aim is to provide an
+    easy-to-use interface to practical music processing algorithms implemented,
+    as simply as possible, in pure Java and without any other external
+    dependencies. The library tries to hit the sweet spot between being capable
+    enough to get real tasks done but compact and simple enough to serve as a
+    demonstration on how DSP algorithms works.
+  </description>
+
+  <licenses>
+    <license>
+      <name>GNU General Public License 3</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0-standalone.html</url>
+    </license>
+  </licenses>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/JorenSix/TarsosDSP/issues</url>
+  </issueManagement>
+
+  <developers>
+    <developer>
+      <id>https://0110.be/</id>
+      <name>Joren Six</name>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://github.com/davidfoerster/TarsosDSP.git</connection>
+    <developerConnection>scm:git:git@github.com:davidfoerster/TarsosDSP.git</developerConnection>
+    <url>https://github.com/davidfoerster/TarsosDSP</url>
+  </scm>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <sourceDirectory>src/core</sourceDirectory>
+    <testSourceDirectory>src/examples</testSourceDirectory>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.12</version>
+        <executions>
+          <execution>
+            <id>add-jvm-source</id>
+            <phase>generate-sources</phase>
+            <goals><goal>add-source</goal></goals>
+            <configuration>
+              <sources>
+                <source>src/jvm</source>
+              </sources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>add-examples</id>
+            <phase>generate-test-sources</phase>
+            <goals><goal>add-test-source</goal></goals>
+            <configuration>
+              <sources>
+                <source>src/examples</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.12.4</version>
+        <configuration>
+          <skipTests>true</skipTests>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>
