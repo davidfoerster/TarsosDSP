@@ -53,6 +53,16 @@
     <sourceDirectory>src/core</sourceDirectory>
     <testSourceDirectory>src/examples</testSourceDirectory>
 
+    <resources>
+      <resource>
+        <directory>.</directory>
+        <targetPath>META-INF</targetPath>
+        <includes>
+          <include>license.txt</include>
+        </includes>
+      </resource>
+    </resources>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
