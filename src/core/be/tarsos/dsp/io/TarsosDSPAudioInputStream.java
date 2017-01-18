@@ -23,14 +23,15 @@
 
 package be.tarsos.dsp.io;
 
+import java.io.Closeable;
 import java.io.IOException;
 
 /**
  * Decouples the audio input stream 
  * @author Joren Six
  */
-public interface TarsosDSPAudioInputStream {
-
+public interface TarsosDSPAudioInputStream extends Closeable
+{
 	/**
 	 * Skip a number of bytes before reading the remaining bytes.
 	 * @param bytesToSkip The number of bytes to skip.
@@ -59,13 +60,14 @@ public interface TarsosDSPAudioInputStream {
      */
 	int read(byte[] b, int off, int len) throws IOException ;
 
-	 /**
-     * Closes this audio input stream and releases any system resources associated
-     * with the stream.
-     * @throws IOException if an input or output error occurs
-     */
-    public void close() throws IOException;
-    
+	/**
+	 * Closes this audio input stream and releases any system resources associated
+	 * with the stream.
+	 * @throws IOException if an input or output error occurs
+	 */
+	@Override
+	void close() throws IOException;
+
 	/**
 	 * 
 	 * @return The format of the underlying audio
